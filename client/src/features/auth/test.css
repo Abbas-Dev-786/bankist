@@ -1,0 +1,73 @@
+.tabs_container {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#flex-item-1 {
+  border-radius: 5px 0 0 5px;
+}
+#flex-item-2 {
+  border-radius: 0 5px 5px 0;
+}
+.page_tabs {
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  width: 140px;
+  height: 45px;
+  border: none;
+  margin: 20px 0;
+  background: #d9d9d9;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.active {
+  background: #d9d9d9;
+  box-shadow: 2px 2px 8px #595858;
+  z-index: 1;
+}
+.tab {
+  width: 500px;
+  height: 500px;
+  background: #d9d9d9;
+}
+#login_div {
+  border-radius: 5px;
+  background: #d9d9d9;
+}
+#signup_div {
+  border-radius: 5px;
+}
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputs {
+  width: 300px;
+  height: 20px;
+  border: none;
+  margin: 4px 0 11px 0;
+  padding: 5px 15px;
+  font-size: 19px;
+}
+.tabs_btn {
+  width: 150px;
+  height: 40px;
+  margin-top: 20px;
+  box-shadow: 1px 1px 3px #000;
+  cursor: pointer;
+  font-size: 15px;
+}
+.label {
+  font-size: 18px;
+}
