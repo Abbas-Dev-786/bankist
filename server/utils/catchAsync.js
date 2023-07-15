@@ -1,11 +1,5 @@
-const catchAsync = (fn) => {
+module.exports = (fn) => {
   return (req, res, next) => {
-    try {
-      fn(req, res, next);
-    } catch (error) {
-      netc(error.message);
-    }
+    fn(req, res, next).catch(next);
   };
 };
-
-module.exports = catchAsync;

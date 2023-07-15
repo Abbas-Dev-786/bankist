@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const { isEmail } = require("validator");
 
-const ROLES = { user: "user", manager: "manager", admin: "admin" };
+// const ROLES = { user: "user", manager: "manager", admin: "admin" };
 
 const userSchema = new mongoose.Schema(
   {
@@ -20,20 +20,30 @@ const userSchema = new mongoose.Schema(
       type: String,
       trim: true,
       validate: [isEmail, "enter valid email address"],
-      unique: [true, "email already in use"],
+      unique: [true, "email must be unique"],
       required: [true, "user must have email"],
     },
     username: {
       type: String,
       trim: true,
-      max: [4, "username should be 4 characters long"],
+      unique: [true, "username must be unique"],
       required: [true, "user must have password"],
     },
     password: {
       type: String,
       trim: true,
-      max: [4, "Password should be 4 characters long"],
+      select: false,
+      maxLength: [4, "Password should be 4 characters long"],
       required: [true, "user must have password"],
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
+    balance: {
+      type: Number,
+      min: 0,
+      default: 0,
     },
     // role: {
     //   type: String,
@@ -43,10 +53,6 @@ const userSchema = new mongoose.Schema(
     //   },
     //   default: ROLES.user,
     // },
-    isActive: {
-      type: Boolean,
-      default: true,
-    },
   },
   { timestamps: true }
 );

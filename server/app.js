@@ -3,7 +3,8 @@ const cors = require("cors");
 const morgan = require("morgan");
 const AppError = require("./utils/AppError");
 const globalErrorHandler = require("./controllers/errorController");
-const router = require("./routes/userRoutes");
+const authRouter = require("./routes/authRoutes");
+const userRouter = require("./routes/userRoutes");
 
 const app = express();
 
@@ -11,7 +12,8 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/v1/auth", router);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/users", userRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`The route ${req.originalUrl} does not exists`));
